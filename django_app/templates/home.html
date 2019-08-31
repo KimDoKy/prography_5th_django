@@ -1,0 +1,21 @@
+{% block title %} Home {% endblock %}
+
+<hr>
+{% if user.is_authenticated %}
+환영합니다! {{ user.username }}
+<a href="{% url 'logout' %}">
+  <button>로그아웃</button>
+</a>
+{% else %}
+<p>로그인 하세요.</p>
+<a href="{% url 'login' %}">
+  <button>로그인</button>
+</a>
+<a href="{% url 'signup' %}">
+  <button>가입하기</button>
+</a>
+{% endif %}
+<hr>
+
+{% block content %}
+{% endblock %}

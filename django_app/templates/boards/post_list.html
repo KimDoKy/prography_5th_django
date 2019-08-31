@@ -1,0 +1,22 @@
+{% extends 'home.html' %}
+
+{% block title %}게시판 리스트{% endblock %}
+
+{% block content %}
+<table>
+  <tr>
+    <th>title</th>
+    <th>info</th>
+  </tr>
+  {% for post in post_list %}
+  <tr>
+    <td><a href="{% url 'boards:post_detail' post.id %}">{{ post.title }}</a></td>
+    <td>by {{ post.author }} at {{ post.create_at }}</td>
+  </tr>
+  {% endfor %}
+</table>
+<hr>
+<a href="{% url 'boards:post_new' %}">
+  <button>write</button>
+</a>
+{% endblock %}
