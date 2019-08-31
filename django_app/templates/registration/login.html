@@ -1,0 +1,17 @@
+<h1>Login</h1>
+
+<form method='post'>
+  {% csrf_token %}
+  {{ form.as_table }}
+  <input type='submit' value='login'>
+</form>
+
+<hr>
+
+<a href="{% url 'signup' %}">
+  <button>가입하기</button>
+</a>
+
+<a href="{% url 'boards:post_list' %}">
+  <button>리스트로 돌아가기</button>
+</a>
