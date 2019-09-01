@@ -1,0 +1,98 @@
+body {
+    background: url(http://cfile215.uf.daum.net/image/020DC23D5151640232717B) no-repeat;
+    background-size: cover;
+}
+
+li, h2, small, p {
+color: #fff;
+}
+
+.detail-title {
+    margin: 10px;
+    padding: 10px;
+}
+
+.detail-content {
+    margin: 50px;
+}
+
+.comment {
+    margin: 30px;
+}
+
+
+.right-box {
+    float: right;
+    background: #fcf1f4;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    margin: 20px 10px;
+}
+
+table {
+    border-collapse: collapse;
+    text-align: left;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    margin: 30px auto;
+}
+
+table thead {
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    background: #e7708d;
+}
+
+table thead th {
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #fff;
+}
+
+table tbody th {
+    width: 150px;
+    padding: 10px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    background: #fcf1f4;
+}
+
+table td {
+    width: 350px;
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #ccc;
+    color: #94446a;
+}
+
+.btn {
+  box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1);
+  font-size: 80%;
+  text-transform: uppercase;
+  letter-spacing: .15rem;
+  border: 0;
+  background: #94446a;
+}
+
+a {
+  color: #c96393;
+}
+
+a:focus, a:hover {
+  text-decoration: none;
+  color: #3c6360;
+}
+
+.text-primary {
+  color: #64a19d !important;
+}
+
+footer {
+  padding: 5rem 0;
+}
+
+h4 {
+color: #fff;
+}
