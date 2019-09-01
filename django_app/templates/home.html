@@ -1,21 +1,39 @@
-{% block title %} Home {% endblock %}
+{% load static %}
 
-<hr>
-{% if user.is_authenticated %}
-환영합니다! {{ user.username }}
-<a href="{% url 'logout' %}">
-  <button>로그아웃</button>
-</a>
-{% else %}
-<p>로그인 하세요.</p>
-<a href="{% url 'login' %}">
-  <button>로그인</button>
-</a>
-<a href="{% url 'signup' %}">
-  <button>가입하기</button>
-</a>
-{% endif %}
-<hr>
-
-{% block content %}
-{% endblock %}
+<html>
+  <head>
+    <title>프로그라피 사전과제  {% block title %} Home {% endblock %} </title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  </head>
+  <body>
+      <div class="right-box">
+        {% if user.is_authenticated %}
+            <b>환영합니다! {{ user.username }}</b>
+            <br>
+            <a href="{% url 'logout' %}">
+              <button class="btn btn-primary mx-auto">로그아웃</button>
+            </a>
+        {% else %}
+            <h3>로그인 하세요.</h3>
+            <a href="{% url 'login' %}">
+              <button class="btn btn-primary mx-auto">로그인</button>
+            </a>
+            <a href="{% url 'signup' %}">
+              <button class="btn btn-primary mx-auto">가입하기</button>
+            </a>
+        {% endif %}
+      </div>
+        {% block content %}
+        {% endblock %}
+      <div class="footer">
+        <center>
+        <h4>by @Makingfunk</h4>
+        </center>
+      </div>
+  </body>
+</html>

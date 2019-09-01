@@ -1,9 +1,16 @@
-<h1>가입하기</h1>
-<form method='post'>
+{% extends 'home.html' %}
+
+{% block content %}
+<h2 class="text-white mb-5">가입하기</h2>
+<br/>
+<div class="container">
+<form method='post' class="form-inline d-flex">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type='submit' value='signup'>
+    <input type='submit' class="btn btn-primary mx-auto" value='signup'>
     <a href="{% url 'boards:post_list' %}">
-      <input type='button' value='돌아가기'>
+      <input type='button' class="btn btn-primary mx-auto" value='돌아가기'>
     </a>
+</div>
 </form>
+{% endblock %}

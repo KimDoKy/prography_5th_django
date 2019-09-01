@@ -4,19 +4,23 @@
 
 {% block content %}
 <table>
-  <tr>
-    <th>title</th>
-    <th>info</th>
-  </tr>
+  <thead>
+    <tr>
+      <th scope="row">title</th>
+      <th scope="row">info</th>
+    </tr>
+  </thead>
+  <tbody>
   {% for post in post_list %}
   <tr>
-    <td><a href="{% url 'boards:post_detail' post.id %}">{{ post.title }}</a></td>
-    <td>by {{ post.author }} at {{ post.create_at }}</td>
+    <th scope="row"><a href="{% url 'boards:post_detail' post.id %}">{{ post.title }}</a></td>
+    <td>by <b>{{ post.author }}</b> at <b>{{ post.create_at }}</b></td>
   </tr>
   {% endfor %}
+  </tbody>
 </table>
 <hr>
 <a href="{% url 'boards:post_new' %}">
-  <button>write</button>
+  <button class="btn btn-primary mx-auto">write</button>
 </a>
 {% endblock %}

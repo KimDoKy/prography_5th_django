@@ -4,41 +4,50 @@
 
 {% block content %}
 
-<h2>{{ post.title }}</h2>
-<small>by {{ post.author }} at {{ post.create_at }}</small>
+<div class="detail-title">
+    <h2>{{ post.title }}</h2>
+    <small>by {{ post.author }} at {{ post.create_at }}</small>
+</div>
 
 <hr>
-<p>{{ post.content|linebreaks }}</p>
-{% if post.photo %}
-  <img src="{{ post.photo.url }}" width=500px>
-{% endif %}
+
+<div class="detail-content">
+    <p>{{ post.content|linebreaks }}</p>
+    {% if post.photo %}
+      <img src="{{ post.photo.url }}" width=500px>
+    {% endif %}
+</div>
+
 <hr>
 
-{% if user.is_authenticated %}
-<form action="{% url 'boards:comment_create' post.id %}" method='post'>
-  {% csrf_token %}
-  <input type='text' name='content' placeholder='댓글을 입력하세요.'>
-</form>
-{% else %}
-<b>댓글은 로그인해야만 작성할 수 있습니다.</b>
-<br>
-{% endif %}
+<div class="comment">
+    {% if user.is_authenticated %}
+    <form action="{% url 'boards:comment_create' post.id %}" method='post'>
+      {% csrf_token %}
+      <input type='text' name='content' placeholder='댓글을 입력하세요.'>
+    </form>
+    {% else %}
+    <b>댓글은 로그인해야만 작성할 수 있습니다.</b>
+    <br>
+    {% endif %}
 
-{% for comment in post.comment_set.all %}
-<li>{{ comment.message }} - by {{ comment.author }} at {{ comment.create_at }}</li>
-{% endfor %}
+    {% for comment in post.comment_set.all %}
+    <li>{{ comment.message }} - by {{ comment.author }} at {{ comment.create_at }}</li>
+    {% endfor %}
+</div>
+
 <hr>
 
 <a href="{% url 'boards:post_list' %}">
-  <button>리스트로 돌아가기</button>
+  <button class="btn btn-primary mx-auto">리스트로 돌아가기</button>
 </a>
 
 {% if user.is_authenticated %}
 <a href="{% url 'boards:post_edit' post.id %}">
-  <button>게시물 수정</button>
+  <button class="btn btn-primary mx-auto">게시물 수정</button>
 </a>
 <a href="{% url 'boards:post_del' post.id %}">
-  <button>삭제</button>
+  <button class="btn btn-primary mx-auto">삭제</button>
 </a>
 {% endif %}
 
