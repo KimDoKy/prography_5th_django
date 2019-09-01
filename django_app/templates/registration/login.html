@@ -1,0 +1,21 @@
+{% extends 'home.html' %}
+
+{% block content %}
+<h1>Login</h1>
+
+<form method='post'>
+  {% csrf_token %}
+  {{ form.as_table }}
+  <input type='submit' class="btn btn-primary mx-auto" value='login'>
+</form>
+
+<hr>
+
+<a href="{% url 'signup' %}">
+  <button class="btn btn-primary mx-auto">가입하기</button>
+</a>
+
+<a href="{% url 'boards:post_list' %}">
+  <button class="btn btn-primary mx-auto">리스트로 돌아가기</button>
+</a>
+{% endblock %}
